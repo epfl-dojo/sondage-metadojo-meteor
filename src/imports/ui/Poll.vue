@@ -1,6 +1,14 @@
 <template>
     <div>
-        <vue-slider ref="slider" v-model="value"></vue-slider>
+        <vue-slider ref="slider"
+                    v-model="value"
+                    :data="opt"
+                    :piecewise="true"
+                    :piecewiseLabel="true"
+                    :piecewiseStyle="piecewiseStyle"
+                    :piecewiseActiveStyle="piecewiseActiveStyle"
+                    :labelActiveStyle="labelActiveStyle"
+        ></vue-slider>
     </div>
 </template>
 <script>
@@ -15,7 +23,21 @@
         },
         data () {
           return {
-            value: 1
+              value: "neutre",
+              opt: ["pas content", "bof", "neutre", "trop bien!"],
+
+              piecewiseStyle: {
+                  "backgroundColor": "#ccc",
+                  "visibility": "visible",
+                  "width": "12px",
+                  "height": "12px"
+              },
+              piecewiseActiveStyle: {
+                  "backgroundColor": "#3498db"
+              },
+              labelActiveStyle: {
+                  "color": "#3498db"
+              }
           }
         }
     }
