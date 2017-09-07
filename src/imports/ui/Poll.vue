@@ -14,7 +14,7 @@
 <script>
     let vueSlider;
     if (Meteor.isClient) {
-        vueSlider = require('vue-slider-component')
+        vueSlider = require('/src/imports/ui/vue2-slider-forked.vue').default;
     }
 
     export default {
