@@ -694,10 +694,10 @@ export default {
 				this.offset = this.direction === 'vertical' ? (this.$refs.elem.getBoundingClientRect().top + window.pageYOffset || document.documentElement.scrollTop) : this.$refs.elem.getBoundingClientRect().left
 			}
 		},
-		refresh () {
+		refresh (speed) {
 			if (this.$refs.elem) {
 				this.getStaticData()
-				this.setPosition()
+				this.setPosition(speed)
 			}
 		}
 	},
@@ -709,6 +709,7 @@ export default {
 			this.setValue(this.value, true, 0)
 			this.bindEvents()
 		})
+    $(window).on('load', this.refresh.bind(this, 0))
 	},
 	beforeDestroy () {
 		this.unbindEvents()
